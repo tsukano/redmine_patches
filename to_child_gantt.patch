@@ -1,0 +1,16 @@
+Index: lib/redmine/helpers/gantt.rb
+===================================================================
+--- lib/redmine/helpers/gantt.rb	(リビジョン 6333)
++++ lib/redmine/helpers/gantt.rb	(作業コピー)
+@@ -261,7 +261,10 @@
+         case options[:format]
+         when :html
+           subject = "<span class='icon icon-projects #{project.overdue? ? 'project-overdue' : ''}'>"
+-          subject << view.link_to_project(project)
++# modify start
++#          subject << view.link_to_project(project)
++          subject << view.link_to_project(project, {:controller => 'gantts', :action => 'show', :project_id => project, :id => nil})
++# modify end
+           subject << '</span>'
+           html_subject(options, subject, :css => "project-name")
+         when :image

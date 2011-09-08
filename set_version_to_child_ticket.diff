@@ -1,0 +1,13 @@
+Index: app/views/issues/show.rhtml
+===================================================================
+--- app/views/issues/show.rhtml	(リビジョン 6333)
++++ app/views/issues/show.rhtml	(作業コピー)
+@@ -66,7 +66,7 @@
+ <hr />
+ <div id="issue_tree">
+ <div class="contextual">
+-  <%= link_to(l(:button_add), {:controller => 'issues', :action => 'new', :project_id => @project, :issue => {:parent_issue_id => @issue}}) if User.current.allowed_to?(:manage_subtasks, @project) %>
++  <%= link_to(l(:button_add), {:controller => 'issues', :action => 'new', :project_id => @project, :issue => {:parent_issue_id => @issue, :fixed_version_id => @issue.fixed_version_id}}) if User.current.allowed_to?(:manage_subtasks, @project) %>
+ </div>
+ <p><strong><%=l(:label_subtask_plural)%></strong></p>
+ <%= render_descendants_tree(@issue) unless @issue.leaf? %>
