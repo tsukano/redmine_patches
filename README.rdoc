@@ -1,1 +1,18 @@
+=インストール
 
+* 以下のコマンドを実行
+ patch -p0 < PATCH_NAME.patch
+
+* 詳細は、以下を参照
+* http://www.redmine.org/projects/redmine/wiki/Patch
+
+
+=パッチ
+===set_version_to_child_ticket.patch
+チケット画面の子チケットの追加リンクを押して表示される子チケットの
+編集画面のバージョンとして親チケットのバージョンを入れる
+
+
+===to_child_gantt.patch
+ガントチャート上のプロジェクトのリンクのURLを概要ではなく、
+ガントチャートに変更する
